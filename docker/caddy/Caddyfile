@@ -46,7 +46,7 @@
             key    {remote_host}
             window 5s
             events 15
-	    }
+        }
     }
 
     # Openly exposed health check endpoint
@@ -62,7 +62,7 @@
     rewrite @spa_router {http.matchers.file.relative}
 
     # Proxy requests to ACA-Py
-    route /agent/* {
+    route /agent {
         uri strip_prefix /agent
         reverse_proxy {$AGENT_HOST}:{$AGENT_PORT} {
             header_up Host {upstream_hostport}

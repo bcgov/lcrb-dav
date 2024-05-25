@@ -40,7 +40,7 @@ services:
       - ST_ACAPY_ADMIN_API_KEY=${AGENT_ADMIN_API_KEY}
       - DAV_CONTROLLER_DB_USER_PWD=${DAV_CONTROLLER_DB_PWD}
       - CONTROLLER_URL=${APPLICATION_DOMAIN}/dav
-      - ACAPY_AGENT_URL=${APPLICATION_DOMAIN}/agent/
+      - ACAPY_AGENT_URL=${APPLICATION_DOMAIN}/agent
     volumes:
       - ../dav-controller:/app:rw
       - ./dav-controller/proof_config_prod.yaml:/app/api/proof_config.yaml
