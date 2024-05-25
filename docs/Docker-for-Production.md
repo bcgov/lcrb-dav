@@ -25,3 +25,7 @@ To get started, follow these steps:
 
 To start from scratch and delete all existing containers and volumes, run the following command:
 `docker compose -f docker-compose-prod.yaml down -v`
+
+## Production CA Authority
+
+By default, the project is set-up to use LetsEncrypt Staging to obtain SSL certificates: when ready to run in production mode, uncomment the line specifying `CA_ENDPOINT` in the `.env` file and restart your services.

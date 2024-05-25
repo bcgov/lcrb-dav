@@ -3,8 +3,9 @@
 }
 
 {$APPLICATION_DOMAIN} {
-    # Set CA authority - override this for development
-    tls {
+    # Set CA authority - defaults to Letsencrypt Staging
+    # Email contact is used for Letsencrypt certificate communications
+    tls {$EMAIL_CONTACT} {
         ca {$CA_ENDPOINT}
     }
 
@@ -50,6 +51,15 @@
 
     # Openly exposed health check endpoint
     respond /health 200
+
+    # Required for SPA router to work
+    @spa_router {
+        not path /dav/* /agent/*
+        file {
+            try_files {path} /index.html
+        }
+    }
+    rewrite @spa_router {http.matchers.file.relative}
 
     # Proxy requests to ACA-Py
     route /agent/* {
