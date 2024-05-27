@@ -13,6 +13,7 @@ services:
       - CA_ENDPOINT=${CA_ENDPOINT:-https://acme-staging-v02.api.letsencrypt.org/directory}
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy/certs:/root/.local/share/caddy/certificates
     ports:
       - ${HTTP_PORT:-80}:80
       - ${HTTPS_PORT:-443}:443
@@ -61,7 +62,7 @@ services:
       - dav_controller
 
   aca-py:
-    image: ghcr.io/hyperledger/aries-cloudagent-python:py3.9-0.11.0
+    image: ghcr.io/hyperledger/aries-cloudagent-python:py3.9-0.12.1
     environment:
       - ACAPY_WALLET_NAME=dav_agent_wallet
       - ACAPY_WALLET_TYPE=askar

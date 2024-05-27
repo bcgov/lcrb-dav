@@ -21,6 +21,10 @@ To get started, follow these steps:
 4. Replace the values between angle braces in the `.env` file with values appropriate for your setup. The hard-coded values can be used to further customize the configuration, but they do not need to be changed. Remember to remove the braces when setting new values.
 5. Once everything is configured, running `docker compose -f docker-compose-prod.yaml up --build -d` should start the services and have them ready to accept requests.
 
+The application will be available at `https://your-domain.test/dav/`.
+
+A new `certs` folder holding the SSL certificates for the service will be created in the `docker/caddy` folder.
+
 ## Resetting the environment
 
 To start from scratch and delete all existing containers and volumes, run the following command:
