@@ -15,7 +15,7 @@ class AuthSessionState(StrEnum):
     SUCCESS = auto()
     FAILURE = auto()
     EXPIRED = auto()
-    ABORTED = auto()
+    ABANDONED = auto()
 
 
 class AuthSessionBase(BaseModel):
