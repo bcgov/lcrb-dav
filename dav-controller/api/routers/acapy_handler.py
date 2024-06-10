@@ -97,7 +97,7 @@ async def post_topic(request: Request, topic: str, db: Database = Depends(get_db
             await AuthSessionCRUD(db).patch(
                 str(auth_session.id), AuthSessionPatch(**auth_session.dict())
             )
-        elif webhook_body["state"] == "abandoned":          
+        elif webhook_body["state"] == "abandoned":
             # abandoned state
             logger.info("ABANDONED")
             logger.info(webhook_body["error_msg"])

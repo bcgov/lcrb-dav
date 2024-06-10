@@ -5,6 +5,7 @@ from cachetools import TTLCache
 # For production multi-pod deployments, use Redis for shared caching.
 # TODO: migrate to Redis
 
+
 class TTLCacheManager:
     def __init__(self, maxsize: int = 100, ttl_seconds: int = 3600):
         self._cache = TTLCache(maxsize=maxsize, ttl=ttl_seconds)
@@ -14,5 +15,6 @@ class TTLCacheManager:
 
     def get(self, key: str) -> Any:
         return self._cache.get(key)
+
 
 cache_manager = TTLCacheManager()
