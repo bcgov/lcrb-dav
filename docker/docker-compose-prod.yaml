@@ -11,6 +11,8 @@ services:
       - AGENT_PORT=8030
       - EMAIL_CONTACT=${EMAIL_CONTACT}
       - CA_ENDPOINT=${CA_ENDPOINT:-https://acme-staging-v02.api.letsencrypt.org/directory}
+      - RATE_LIMIT_WINDOW=${RATE_LIMIT_WINDOW:-1s}
+      - RATE_LIMIT_EVENTS=${RATE_LIMIT_EVENTS:-150}
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile
       - ./caddy/certs:/root/.local/share/caddy/certificates

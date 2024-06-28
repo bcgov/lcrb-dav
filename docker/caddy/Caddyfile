@@ -43,9 +43,12 @@
     # Limit request rate to avoid DDoS attacks
     rate_limit {
         zone dav {
+            match {
+                not path /agent/*
+            }
             key    {remote_host}
-            window 5s
-            events 15
+            window {$RATE_LIMIT_WINDOW}
+            events {$RATE_LIMIT_EVENTS}
         }
     }
 
