@@ -33,3 +33,7 @@ To start from scratch and delete all existing containers and volumes, run the fo
 ## Production CA Authority
 
 By default, the project is set-up to use LetsEncrypt Staging to obtain SSL certificates: when ready to run in production mode, uncomment the line specifying `CA_ENDPOINT` in the `.env` file and restart your services.
+
+# Rate Limiting
+
+Request rate limiting can be tweaked by using the `RATE_LIMIT_WINDOW` and `RATE_LIMIT_EVENTS` environment variables - see https://github.com/mholt/caddy-ratelimit
