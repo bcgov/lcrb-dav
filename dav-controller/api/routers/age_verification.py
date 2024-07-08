@@ -83,7 +83,8 @@ async def get_dav_request(pid: str, db: Database = Depends(get_db)):
             str(auth_session.id), AuthSessionPatch(**auth_session.dict())
         )
         # Send message through the websocket.
-        await sio.emit("status", {"status": "expired"}, to=sid)
+        if sid:
+            await sio.emit("status", {"status": "expired"}, to=sid)
         if auth_session.notify_endpoint:
             deliver_notification({"status": "expired"}, auth_session.notify_endpoint)
     if auth_session.proof_status == AuthSessionState.SUCCESS:

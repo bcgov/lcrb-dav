@@ -64,7 +64,8 @@ async def send_connectionless_proof_req(
     if auth_session.proof_status is AuthSessionState.INITIATED:
         auth_session.proof_status = AuthSessionState.IN_PROGRESS
         await AuthSessionCRUD(db).patch(auth_session.id, auth_session)
-        await sio.emit("status", {"status": "in_progress"}, to=sid)
+        if sid:
+            await sio.emit("status", {"status": "in_progress"}, to=sid)
         if auth_session.notify_endpoint:
             deliver_notification(
                 {"status": "in_progress"}, auth_session.notify_endpoint
