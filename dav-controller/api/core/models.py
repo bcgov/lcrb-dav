@@ -59,12 +59,14 @@ class RevealedAttribute(TypedDict, total=False):
 class AgeVerificationModelCreate(BaseModel):
     notify_endpoint: str | None
     metadata: dict | None
+    retain_attributes: bool | None
 
     class Config:
         schema_extra = {
             "example": {
                 "notify_endpoint": "https://my-url/webhook#api-key",
                 "metadata": {"other_system_id": 123},
+                "retain_attributes": False,
             }
         }
 
