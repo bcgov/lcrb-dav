@@ -26,17 +26,7 @@ class AuthSessionBase(BaseModel):
     )
     metadata: Optional[dict] = None
     notify_endpoint: Optional[str] = None
-    retain_attributes: bool = False
-
-    # @validator('metadata')
-    # def prevent_dict_none(cls, v):
-    #     assert v is not None, 'metadata may not be None'
-    #     return v
-
-    # @validator('notify_endpoint')
-    # def prevent_str_none(cls, v):
-    #     assert v is not None, 'notify_endpoint may not be None'
-    #     return v
+    retain_attributes: Optional[bool] = False
 
     class Config:
         allow_population_by_field_name = True
