@@ -152,7 +152,9 @@ async def new_dav_request(
         url=url_to_message,
         notify_endpoint=request.notify_endpoint,
         metadata=request.metadata,
-        retain_attributes=request.retain_attributes,
+        retain_attributes=(
+            request.retain_attributes if request.retain_attributes else False
+        ),
     )
 
 
