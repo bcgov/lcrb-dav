@@ -7,7 +7,11 @@ A verifier application to enable the Digital Age Verification process involving 
 
 See [here](https://hackmd.io/@esune/SywrtDQvp) for more background and architectural info.
 
-[Running lcrb-dav](#running-lcrb-dav) will standup an `aca-py` service with it's associated storage, `controller` service with it's FastAPI backend, vanilla JavaScript frontedn relying on Jinja2 template and polling `GET` endpoints, and Mongo database.
+[Running lcrb-dav](#running-lcrb-dav) will standup an `aca-py` service with it's associated storage, `controller` service with it's FastAPI backend, vanilla JavaScript frontend relying on Jinja2 template and polling `GET` endpoints, and Mongo database.
+
+## Retirement Notice
+
+The Digital Age Verification service was built as a usable prototype to validate the age verification use-case and provide implementers with an example to be used as reference when implementing age verification. The project has been retired as it is not going to be actively maintained, but still serves its purpose of demonstrating the technical stack and potential integration patterns.
 
 ## Pre-requisites
 
